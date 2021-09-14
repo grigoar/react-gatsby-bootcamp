@@ -1,20 +1,48 @@
 import React from "react"
+import { graphql, useStaticQuery, Link } from "gatsby"
 
 import Layout from "../components/layout"
 
 const BlogPage = () => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allMarkdownRemark {
+          edges {
+            node {
+              frontmatter {
+                title
+                date
+              }
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+  const blogs = data.allMarkdownRemark.edges
   return (
     <Layout>
       <h1>My blog</h1>
-      <p>Posts will show up here later</p>
+      <ol>
+        {blogs.map((blog, index) => {
+          return (
+            <li key={index}>
+              <h2>
+                <Link to={`/blog/${blog.node.fields.slug}`}>
+                  {blog.node.frontmatter.title}
+                </Link>
+              </h2>
+              <p>{blog.node.frontmatter.date}</p>
+            </li>
+          )
+        })}
+      </ol>
     </Layout>
   )
 }
 
 export default BlogPage
-
-//Goal: Create an about page and a contact page
-//
-// 1. Create an about page. Include a page title and bio.
-// 2. Create a contact page. Include a page title and contact details
-// 3. Test your work!
