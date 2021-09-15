@@ -1,6 +1,6 @@
 ---
 title: "React"
-date: "2021-08-10"
+date: "2021-09-10"
 ---
 
 In this post you'll learn React !!!
