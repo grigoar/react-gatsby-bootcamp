@@ -42,14 +42,14 @@ export const query = graphql`
 `
 
 const Blog = ({ data }) => {
+  // <pre>
+  //   <code>{JSON.stringify(node, null, 2)}</code>
+  // </pre>
   const options = {
     renderNode: {
       "embedded-asset-block": node => {
         return (
           <>
-            <pre>
-              <code>{JSON.stringify(node, null, 2)}</code>
-            </pre>
             <img
               src={node.data.target.fixed.src}
               alt={node.data.target.title}

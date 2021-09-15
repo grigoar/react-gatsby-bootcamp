@@ -20,7 +20,7 @@ const Home = () => {
         >
           grigoar
         </span>
-        , a full-stack developer living in the the beautiful Romania
+        , a full-stack developer living in the the beautiful Romania.
       </h2>
       <p>
         {" "}
