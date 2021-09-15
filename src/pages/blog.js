@@ -4,6 +4,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 import Layout from "../components/layout"
 import * as blogStyles from "./blog.module.scss"
+import Head from "../components/head"
 
 const BlogPage = () => {
   // const data = useStaticQuery(
@@ -48,6 +49,7 @@ const BlogPage = () => {
   const blogs = dataContentful.allContentfulBlogPost.edges
   return (
     <Layout>
+      <Head title="Blog" />
       <h1>My blog</h1>
       <ol className={blogStyles.posts}>
         {blogs.map((blog, index) => {
