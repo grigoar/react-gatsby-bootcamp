@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 import Layout from "../components/layout"
 import * as blogStyles from "./blog.module.scss"
@@ -33,6 +34,9 @@ const BlogPage = () => {
               title
               slug
               publishedDate(formatString: "MMMM Do, YYYYY")
+              body {
+                raw
+              }
             }
           }
         }
